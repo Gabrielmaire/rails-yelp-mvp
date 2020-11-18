@@ -1,0 +1,21 @@
+<%= link_to "Back", restaurants_path %>
+<br>
+<%= link_to "Edit", edit_restaurant_path(@restaurant) %>
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+
+
+
+<h1>Restaurant</h1>
+
+<p>Name: <%= @restaurant.name %></p>
+<p>Address: <%= @restaurant.address %></p>
+<p>Phone: <%= @restaurant.phone_number %></p>
+<p>Category: <%= @restaurant.category %></p>
+<br>
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item"><%= review.rating %></li>
+  <% end %>
+</ul>
